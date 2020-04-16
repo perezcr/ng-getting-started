@@ -1,0 +1,40 @@
+.card {
+  box-shadow: 5px 5px 8px 3px rgba(0, 0, 0, 0.4);
+
+  &-header {
+    background-color: lighten(#1976d2, 20%);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+}
+
+img {
+  height: 3rem;
+}
+
+.table {
+  th,
+  td {
+    text-align: center;
+  }
+
+  thead {
+    color: #09f;
+  }
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+
+  &__input {
+    margin-top: 1rem;
+    max-width: 20rem;
+  }
+}

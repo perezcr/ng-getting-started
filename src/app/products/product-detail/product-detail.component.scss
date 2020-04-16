@@ -1,0 +1,12 @@
+.card {
+  box-shadow: 5px 5px 8px 3px rgba(0, 0, 0, 0.4);
+
+  &-header {
+    background-color: lighten(#1976d2, 20%);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+}

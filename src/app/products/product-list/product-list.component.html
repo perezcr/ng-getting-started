@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <div class="search">
+      <h4>Filtered by: {{listFilter}}</h4>
+      <input type="search" class="form-control search__input" placeholder="Filter by:" aria-label="Search" [(ngModel)]="listFilter">
+    </div>
+    <div class='table-responsive' *ngIf="products?.length">
+      <table class='table table-bordered'>
+        <thead>
+          <tr>
+            <th scope="col">
+              <button class='btn btn-outline-primary btn-sm' (click)="toggleImage()">
+                {{ showImage ? 'Hide' : 'Show' }} Image
+              </button>
+            </th>
+            <th scope="col">Product</th>
+            <th scope="col">Code</th>
+            <th scope="col">Available</th>
+            <th scope="col">Price</th>
+            <th scope="col">5 Star Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of filteredProducts">
+            <td scope="row">
+              <img *ngIf="showImage" [src]="product.imageUrl" [title]="product.productName" alt={{product.productName}}>
+            </td>
+            <td>
+              <a [routerLink]="['/products', product.productId]">{{ product.productName }}</a>
+            </td>
+            <td>{{ product.productCode | lowercase | convertToSpaces: '-' }}</td>
+            <td>{{ product.releaseDate }}</td>
+            <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
+            <td>
+              <app-star [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)"></app-star>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
